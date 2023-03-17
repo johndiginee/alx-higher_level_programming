@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
-script that takes in the name of a state 
-as an argument and lists all cities of 
+script that takes in the name of a state
+as an argument and lists all cities of
 that state, using the database hbtn_0e_4_usa.
 """
 
@@ -13,8 +13,7 @@ if __name__ == "__main__":
     Access DB and get the states.
     """
     db_connect = db.connect(host="localhost", port=3306, user=argv[1],
-                         password=argv[2], db=argv[3])
-    
+                            password=argv[2], db=argv[3])
     with db_connect.cursor() as db_cursor:
         db_cursor.execute("""
             SELECT
@@ -33,6 +32,5 @@ if __name__ == "__main__":
             'state_name': argv[4]
         })
         rows_selected = db_cursor.fetchall()
-
     if rows_selected is not None:
         print(", ".join([row[1] for row in rows_selected]))
