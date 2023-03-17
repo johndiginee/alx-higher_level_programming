@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 """
-Script that takes in arguments and 
+Script that takes in arguments and
 displays all values in the states
-table of hbtn_0e_0_usa where name 
-matches the argument. But this time, 
-write one that is safe from 
+table of hbtn_0e_0_usa where name
+matches the argument. But this time,
+write one that is safe from
 MySQL injections.
 """
 
@@ -16,14 +16,12 @@ if __name__ == "__main__":
     Access DB and get the states.
     """
     db_connect = db.connect(host="localhost", port=3306, user=argv[1],
-                         password=argv[2], db=argv[3])
-    
+                            password=argv[2], db=argv[3])
     db_cursor = db_connect.cursor()
 
     db_cursor.execute(
         "SELECT * FROM states WHERE name LIKE \
                     BINARY %(name)s ORDER BY states.id ASC", {'name': argv[4]})
-    
     rows_selected = db_cursor.fetchall()
 
     for row in rows_selected:
