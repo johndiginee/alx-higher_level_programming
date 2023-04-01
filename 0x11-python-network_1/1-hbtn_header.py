@@ -1,8 +1,9 @@
 #!/usr/bin/python3
-"""script that takes in a URL, sends a req"""
-"""the value of the X-Request-Id variables."""
-import urllib.request
+"""script that takes in a URL, sends a req
+the value of the X-Request-Id variables.
+"""
 import sys
+import urllib.request
 
 
 if __name__ == "__main__":
