@@ -9,7 +9,7 @@ request(route, (err, res, body) => {
   JSON.parse(body).forEach(todo => {
     const id = todo.userId;
     if (!numTasks[id]) numTasks[id] = 0;
-    if (todo.completed) !numTasks[id]++;
+    if (todo.completed) numTasks[id]++;
     if (numTasks[id] === 0) delete numTasks[id];
   });
   console.log(numTasks);
