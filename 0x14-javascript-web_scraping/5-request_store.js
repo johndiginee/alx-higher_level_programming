@@ -7,7 +7,7 @@ const fileName = process.argv[3];
 request(route, (err, res, body) => {
   if (err) throw err;
 
-  fs.writeFile(file, body, 'utf8', (err) => {
+  fs.writeFile(fileName, body, 'utf8', (err) => {
     if (err) throw err;
   });
 });
